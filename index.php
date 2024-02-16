@@ -4,7 +4,7 @@ class Movie
     public $title;
     public $genre;
 
-    function __construct($_title , $_genre )
+    function __construct($_title ,  ...$_genre )
     {
         $this->title = $_title;
         $this->genre = $_genre; 
@@ -20,22 +20,21 @@ class Movie
         return $this->genre;
     }
 }
-$movie = new Movie("Fantastic Beasts and Where to Find Them", "Fantasy");
-$movie->genre = "Fantasy"; 
+$movie = new Movie("Fantastic Beasts and Where to Find Them","Fantasy");
  echo $movie->get_title().':';  
- echo $movie->get_genre().'<br>'; 
- $movie = new Movie("The Mask", "Commedy");
-$movie->genre = "Commedy"; 
+ echo implode(', ', $movie->get_genre()).'<br>'; 
+ $movie = new Movie("The Mask","Commedy");
  echo $movie->get_title() . ':'; 
- echo $movie->get_genre().'<br>';
+ echo implode(', ', $movie->get_genre()).'<br>'; 
   $movie = new Movie("Matrix","Fantasy");
-$movie->genre = "Fantasy"; 
  echo $movie->get_title().':';  
- echo $movie->get_genre().'<br>'; 
+ echo implode(', ', $movie->get_genre()).'<br>'; 
    $movie = new Movie("The Theory of Everything","Romantic");
-$movie->genre = "Romantic"; 
  echo $movie->get_title().':';  
- echo $movie->get_genre().'<br>'; 
+ echo implode(', ', $movie->get_genre()).'<br>'; 
+$movie = new Movie("Birds of Prey and the Fantabulous Emancipation of One Harley Quinn", "Fantasy", "Action", "Commedy","Adventure");
+ echo $movie->get_title().':';  
+ echo implode(', ', $movie->get_genre()).'<br>'; 
 
 
 
